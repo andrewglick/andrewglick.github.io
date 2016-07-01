@@ -1,0 +1,537 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+}
+body *{
+  transform: translate3d(0,0,0);
+}
+.underPhotos{
+  position: absolute;
+  top: 100vh;
+  height: 200vh;
+  width: 100%;
+}
+.underPhotos img {
+    height: 20vh;
+    position: absolute;
+}
+.underPhotos img:nth-of-type(1){
+  top: 25vh;
+  left: 10vw;
+}
+.underPhotos img:nth-of-type(2){
+  top: 75vh;
+  right: 10vw;
+  animation-delay: 2.5s;
+}
+.underPhotos img:nth-of-type(3){
+  top: 125vh;
+  left: 10vw;
+}
+#tvContainer{
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  bottom: calc(33% - 100px);
+  right: 50%;
+  margin-right: -200px;
+  transition: all 1s ease;
+}
+
+#tvContainer.slideOut {transform: translateY(100vh);}
+
+    header{
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      position: fixed;
+      z-index: 2;
+    }
+
+header.hide {
+    visibility: hidden;
+}
+
+header #logoContainer {
+    position: absolute;
+    left: 50%;
+    margin-left: -266px;
+    top: 100px;
+}
+
+div#logoContainer img {
+    height: 110px;
+    display: block;
+    float: left;
+    opacity: 0;
+    transform: translate3d(0,0,0);
+}
+div#logoContainer.flickerIn img {
+    animation: flicker .5s ease both;
+}
+div#logoContainer.flickerOut img {
+      animation: flickerReverse .5s ease both;
+}
+.section:nth-of-type(2){
+  z-index: 100;
+}
+@keyframes flicker{
+  0%{
+    opacity: 0;
+    transform: translateY(25px);
+    visibility: hidden;
+  }
+  1%{
+    visibility: visible;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100%{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flickerReverse{
+  100%{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(25px);
+  }
+  99%{
+    visibility: visible;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  0%{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+div#logoContainer img:nth-of-type(1){
+ animation-delay: .3s; 
+}
+div#logoContainer img:nth-of-type(2){
+ animation-delay: .5s; 
+}
+div#logoContainer img:nth-of-type(3){
+  animation-delay: .2s;
+}
+div#logoContainer img:nth-of-type(4){
+ animation-delay: .1s;
+}
+div#logoContainer img:nth-of-type(5){
+ animation-delay: .4s;
+}
+div#logoContainer img:nth-of-type(6){
+ animation-delay: .7s;
+}
+div#logoContainer img:nth-of-type(7){
+ animation-delay: .6s;
+}
+div#logoContainer img:nth-of-type(8){
+ animation-delay: .8s; 
+}
+    body{
+      margin: 0;
+      padding; 0;
+      color: white;
+      font-weight: lighter;
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+    ::selection{
+      background-color: black;
+    }
+    main article{
+      width: 800px;
+      max-width: 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right:auto;
+      clear: both;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    main article artist{
+      display: block;
+      clear: both;
+    
+      text-align: left;
+}
+
+artist:first-of-type {
+    margin-top: 30px;
+}
+    main article artist:hover img{
+      //border-radius: 0;
+    }
+    main article artist img{
+      width: 125px;
+      height: 125px;
+      margin: 0 20px 0 0;
+      padding-bottom: 20px;
+      float: left;
+      clear: both;
+    }
+    main article h1{
+      font-size: 50px;
+      text-align: center;
+      padding-bottom: 25px;
+      font-weight: normal;
+    }
+    main  article h2{
+      font-size: 30px;
+      padding: 0 0 10px 0;
+      font-weight: normal;
+    }
+    main  article  p{
+      font-size: 20px;
+      padding: 5px 0;
+    }
+  main > div.articleWrapper{
+    width: 100%;
+  /*min-height: 100vh;*/
+  
+}
+
+.section:first-of-type {
+    height: 300vh!important;
+}
+
+#holdupMain {
+    width: 100%;
+}
+  /*#about{
+    width: 570px;
+  }*/
+  #about p{
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  #contact p{
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 10px 0;  
+  }
+.articleWrapperBetween {
+    width: 100%;
+    height: 71.4vw;
+    //
+    max-height: 100vh;
+    background-image: url('tub.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hotspot {
+    display: block;
+    position: absolute;
+    width: 23vw;
+    height: 17vw;
+    display: none;
+    opacity: .5;
+    cursor: pointer;
+}
+.h1{
+    display: block;
+    top: 13vw;
+    left: 7vw
+}
+.h2{
+    display: block;
+    top: 8vw;
+    left: 25vw
+}
+.h3{
+    display: block;
+    top: 2vw;
+    left: 46vw;
+    width: 20vw;
+    height: 12vw
+}
+.h4{
+    display: block;
+    top: 8vw;
+    left: 63vw
+}
+.h5{
+    display: block;
+    top: 25vw;
+    left: 61vw
+}
+.h6{
+    display: block;
+    top: 42vw;
+    left: 73vw
+}
+.h7{
+    display: block;
+    top: 42.5vw;
+    left: 53vw;
+    width: 20vw
+}
+.h8{
+    display: block;
+    top: 45vw;
+    left: 33vw;
+    width: 22vw;
+}
+.h9{
+    display: block;
+    top: 43vw;
+    left: 20vw;
+    width: 15vw;
+    height: 12vw
+}
+.h10{
+    display: block;
+    top: 43vw;
+    left: 3vw;
+    height: 11vw;
+    width: 17vw;
+}
+.h11{
+    display: block;
+    top: 30vw;
+    left: 11vw;
+    width: 18vw;
+    height: 13vw
+}
+.h12{
+    display: block;
+    top: 25vw;
+    left: 29vw;
+    height: 20vw;
+    width: 17vw;
+}
+.h13{
+    display: block;
+    top: 14vw;
+    left: 46.5vw;
+    width: 16.6vw;
+    height: 22vw;
+}
+.h14{
+    display: block;
+    top: 35vw;
+    left: 45vw;
+    height: 10vw;
+    width: 16vw;
+}
+.photoBContainer{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .66;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .25s ease;
+}
+.photoB{
+  position: fixed;
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(.75);
+  -webkit-transition: all .25s ease;
+}
+.photoBContainer.active{
+  visibility: visible;
+  opacity: .7;
+}
+.photoB.active{
+  transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.articleWrapper {
+    height: 100vh;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: 'Oswald';
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#bios{
+  display: flex;
+  flex-direction: row;
+  //
+  display: none;
+  flex: 1 1 auto;
+}
+#bios .img{
+  flex: 1;
+  height: auto;
+  display: block;
+  float: left;
+  background-position: center;
+  cursor: pointer;
+  background-size: cover;
+}
+#bios .img:hover{
+  width: 300px!important;
+  flex: initial;
+  position: relative;
+}
+#bios .img:hover:after{
+  content:"Artist Name";
+  text-transform: uppercase;
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+#bios .img:nth-of-type(1):hover:after{
+  content:"Ian Carr";
+}
+#bios .img:nth-of-type(2):hover:after{
+  content:"Devin Field";
+}
+#bios .img:nth-of-type(3):hover:after{
+  content:"Andrew Glick";
+}
+#bios .img:nth-of-type(4):hover:after{
+  content:"Hayley Huntley";
+}
+#bios .img:nth-of-type(5):hover:after{
+  content:"Jake Minton";
+}
+#bios:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+#photoContainer{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+#photoContainer .img{
+  width: 20%;
+  cursor: pointer;
+  position: relative;
+  float: left;
+}
+.section:nth-of-type(1) img{
+  height: 150px;
+  position: absolute;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin{
+  0%{
+    transform: rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.section:nth-of-type(1) img:nth-of-type(1){
+  top: 260vh;
+  left: 20vw;
+}
+.section:nth-of-type(1) img:nth-of-type(2){
+  top: 240vh;
+  left: 60vw;
+}
+.section:nth-of-type(1) img:nth-of-type(3){
+  top: 180vh;
+  left: 40vw;
+}
+.section:nth-of-type(1) img:nth-of-type(4){
+  top: 200vh;
+  left: 80vw;
+}
+.section:nth-of-type(1) img:nth-of-type(5){
+  top: 220vh;
+  left: 20vw;
+}
+.section:nth-of-type(1){
+  background-image: url('bg.png'),linear-gradient(to bottom, #1f5167, #96CEB4);
+}
+.section:nth-of-type(2){
+  background-image: url('bg.png'),linear-gradient(to bottom, #96CEB4, rgb(72,148,180));
+}
+.section:nth-of-type(3){
+  background-image: url('bg.png'),linear-gradient(to bottom, rgb(72,148,180), rgb(72,148,180));
+}
+.section:nth-of-type(4){
+  background-image: url('bg.png'),linear-gradient(to bottom, rgb(72,148,180), #FF8DAD);
+}
+.section:nth-of-type(5){
+  background-image: url('bg.png'),linear-gradient(to bottom, #FF8DAD, #FF8DAD);
+}
+.section:nth-of-type(6){
+  background: #FF8DAD;
+  background-image: url('bg.png'),
+}

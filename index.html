@@ -1,0 +1,393 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.fullPage.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+<meta name="viewport" content="width=1000, initial-scale=1">
+<script type="text/javascript">
+$(function(){
+				$('#fullpage').fullpage(
+					{scrollingSpeed: 2000,
+						fitToSection:false, 
+						verticalCentered: false,
+				        onLeave: function(index, nextIndex, direction){
+				            var leavingSection = $(this);
+
+				            //after leaving section 2
+				            if(index == 1 && direction =='down'){
+				            	setTimeout(function(){
+				            	$("header").addClass('hide');
+				           		}, 1500);
+				                $("#logoContainer").addClass('flickerOut');
+				                $("#tvContainer").addClass('slideOut');
+				                $("#logoContainer").removeClass('flickerIn');
+				            }
+				            if(index == 2 && direction =='up'){
+				            	$.fn.fullpage.setScrollingSpeed(2000)
+				            	$("header").removeClass('hide');
+				                $("#logoContainer").removeClass('flickerOut');
+				                $("#tvContainer").removeClass('slideOut');
+				                $("#logoContainer").addClass('flickerIn');
+				            }
+				        },
+				        afterLoad: function(anchorLink, index){
+				            var loadedSection = $(this);
+				            if(index == 1){
+				            	$.fn.fullpage.setScrollingSpeed(2000)
+				            	if($("#tvContainer").hasClass('slideOut')){
+					            	setTimeout(function(){
+					               		$("#logoContainer").addClass('flickerIn');
+					               		$("#tvContainer").removeClass('slideOut');
+					            	}, 1000);
+				           		}
+				            } else {
+				            	$.fn.fullpage.setScrollingSpeed(1000)
+				            }
+				        }
+					});
+})
+</script>
+  <meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  <title>The Holdup Improv</title>
+  <meta name="description" content="The Holdup Improv">
+  <meta name="author" content="The Holdup Improv">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--<style type="text/css">
+  html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: 'Oswald';
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#bios{
+	display: flex;
+	flex-direction: row;
+	//display: none;
+}
+#bios .img{
+	flex: 1;
+	height: 300px;
+	display: block;
+	float: left;
+	background-position: center;
+	cursor: pointer;
+	background-size: cover;
+}
+#bios .img:hover{
+	width: 300px!important;
+	flex: initial;
+	position: relative;
+}
+#bios .img:hover:after{
+	content:"Artist Name";
+	text-transform: uppercase;
+	display: block;
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+#bios .img:nth-of-type(1):hover:after{
+	content:"Ian Carr";
+}
+#bios .img:nth-of-type(2):hover:after{
+	content:"Devin Field";
+}
+#bios .img:nth-of-type(3):hover:after{
+	content:"Andrew Glick";
+}
+#bios .img:nth-of-type(4):hover:after{
+	content:"Hayley Huntley";
+}
+#bios .img:nth-of-type(5):hover:after{
+	content:"Jake Minton";
+}
+#bios:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+#photoContainer{
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+#photoContainer .img{
+	width: 20%;
+	cursor: pointer;
+	position: relative;
+	float: left;
+}
+</style>-->
+<link href='https://fonts.googleapis.com/css?family=Trocchi|Noto+Serif|Oswald:300' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<header>
+		<div id="logoContainer">
+			<img src="images/holdup_logo_01.png" />
+			<img src="images/holdup_logo_02.png" />
+			<img src="images/holdup_logo_03.png" />
+			<img src="images/holdup_logo_04.png" />
+			<img src="images/holdup_logo_05.png" />
+			<img src="images/holdup_logo_06.png" />
+			<img src="images/holdup_logo_07.png" />
+			<img src="images/holdup_logo_08.png" />
+		</div>
+	<div id="tvContainer" class="slideOut">
+		<iframe style="width: 72%; height: 70%; position: absolute; top: 105px; left: 40px;" src="https://www.youtube.com/embed/9MkfjIN8n8g?autoplay=1&controls=0&rel=0" frameborder="0" allowfullscreen></iframe>
+		<video autoplay loop style="width: 90%; height: 70%; position: absolute; top: 105px; left: 30px;" muted>
+		  <source src="bars.mp4" type="video/mp4">
+		</video>
+		<img src="tv.svg" style="width: 100%; position: absolute; top: 0; left: 0"/>
+	</div>
+</header>
+
+<main id="fullpage">
+	<div class="section">
+		<img src="face1.png" />
+		<img src="face2.png" />
+		<img src="face3.png" />
+		<img src="face4.png" />
+		<img src="face5.png" />
+	</div>
+<div class="section">
+	<div class="articleWrapper" data--1-top="top: 0;" data-top="top: 0">
+		<article id="about">
+			<h1><img src="about.png" style="width: 200px"/></h1>
+			<p>The Holdup is a long-form improv group performing in rooms with chairs around Los Angeles. Its members first met at USC, where they performed with Second Nature, The Merry Men, and Commedus Interruptus. Before that, they were all just kids with dreams.</p>
+			<p>They enjoyed a twelve week winning streak at the Upright Citizens Brigade Cagematch and have performed at the "Del Close Marathon" in New York and "Out of Bounds" in Austin.</p>
+
+			<p>= Ian Carr = Devin Field = Andrew Glick = Hayley Huntley = Jake Minton =</p>
+			<br><br>
+			<div id="bios">
+				<!--<div class="ibio" style="width: 33%; float: left; background-color: black; font-size: 30px; position: relative;">Bios</div>-->
+				<div class="img" style="background-image: url('ian_carr.jpg')"></div>
+				<div  class="img" style="background-image: url('devin_field.jpg')"></div>
+				<div class="img" style="background-image: url('andrew_glick.jpg')"></div>
+				<div class="img" style="background-image: url('hayley_huntley.jpg')"></div>
+				<div class="img" style="background-image: url('jake_minton.jpg')"></div>
+			</div>
+
+		</article>
+	</div>
+</div>
+	<!--<div class="articleWrapper" style="background-color: #FFCC5C; background-color: #96CEB4">
+		<article>
+			<h1>Bios</h1>
+			</div>
+			<artist>
+				<img src="ian_carr.jpg" />
+				<h2>Ian Carr (USC '13)</h2>
+				<p>Ian Carr is an improviser and writer originally from Ridgefield, Connecticut.</p>
+				<p><span>USC Improv: Second Nature</span></p>
+				<span style="display: block; clear: both"></span>
+				</artist>
+				<artist>
+				<img src="devin_field.jpg" />
+				<h2>Devin Field <span>(USC '12)</span></h2>
+				<p>Devin Field is an improviser, writer and stand-up comedian originally from Seattle, Washington.</p>
+				<p><span>USC Improv: Second Nature</span></p>
+			<span style="display: block; clear: both"></span>
+			</artist>
+			<artist>
+				<img src="andrew_glick.jpg" />
+				<h2>Andrew Glick <span>(USC '13)</span></h2>
+				<p>Andrew Glick is an actor, improviser and writer originally from Cambridge, England.</p>
+				<p><span>USC Improv: The Merry Men.</span></p>
+				<span style="display: block; clear: both"></span>
+				</artist>
+				<artist>
+				<img src="hayley_huntley.jpg" />
+				<h2>Hayley Huntley <span>(USC '11)</span></h2>
+				<p>Hayley Huntley is an actress, improviser and writer originally from Reno, Nevada.</p>
+				<p><span>USC Improv: The Merry Men</span></p>
+			<span style="display: block; clear: both"></span>
+			</artist>
+			<artist>
+				<img src="jake_minton.jpg" />
+				<h2>Jake Minton <span>(USC '12)</span></h2>
+				<p>Jake Minton is an actor, improviser and writer originally from Milwaukee, Wisconsin.</p>
+				<p><span>USC Improv: Commedus Interruptus</span></p>
+			<span style="display: block; clear: both"></span>
+			</artist>
+		</article>
+	</div>-->
+<div class="section">
+	<div class="articleWrapperBetween"></div>
+</div>
+	<!--<div class="articleWrapper" style="background-color: #FF6F69; background-color: black; background-position: center; background-size: cover;">
+		<article style="width: 1200px; padding-left: 0; padding-right: 0; max-width: 100%;">
+			<h1>Photos</h1>
+			<div id="photoContainer">
+				<img src="photos/1.jpg" />
+				<img src="photos/2.jpg" />
+				<img src="photos/3.jpg" />
+				<img src="photos/4.jpg" />
+				<img src="photos/5.jpg" />
+				<img src="photos/6.jpg" />
+				<img src="photos/18.jpg" />
+				<img src="photos/7.jpg" />
+				<img src="photos/8.jpg" />
+				<img src="photos/9.jpg" />
+				<img src="photos/10.jpg" />
+				<img src="photos/11.jpg" />
+				<img src="photos/12.jpg" />
+				<img src="photos/17.jpg" />
+			</div>
+		</article>
+	</div>-->
+<div class="section">
+	<div class="articleWrapper">
+		<article>
+			<h1><img src="videos.png" style="width: 300px"/></h1>
+			<iframe style="width: 100%; height: 70vh" src="https://www.youtube.com/embed/vHgp7NqMeOk" frameborder="0" allowfullscreen></iframe>
+			<a href="https://www.youtube.com/channel/UCL5oVH96qB9Q9fVmAa5v0HQ/feed"><img style="width: 150px; padding: 50px 0 0 0;" src="youtube.png" /></a>
+		</article>
+	</div>
+</div>
+<div class="section">
+	<div class="articleWrapperBetween" style="background-image: url('poster.jpg'); background-size:contain; height: 100vh; position: relative">
+		<div class="hotspot h1" data-target="p1"></div>
+		<div class="hotspot h2" data-target="p2"></div>
+		<div class="hotspot h3" data-target="p3"></div>
+		<div class="hotspot h4" data-target="p4"></div>
+		<div class="hotspot h5" data-target="p5"></div>
+		<div class="hotspot h6" data-target="p6"></div>
+		<div class="hotspot h7" data-target="p7"></div>
+		<div class="hotspot h8" data-target="p8"></div>
+		<div class="hotspot h9" data-target="p9"></div>
+		<div class="hotspot h10" data-target="p10"></div>
+		<div class="hotspot h11" data-target="p11"></div>
+		<div class="hotspot h12" data-target="p12"></div>
+		<div class="hotspot h13" data-target="p13"></div>
+		<div class="hotspot h14" data-target="p14"></div>
+	</div>
+</div>
+<div class="section">
+	<div class="articleWrapper" style="min-height: auto; background-image: url('bg.png');">
+		<article id="contact">
+			<img src="faces.png" style="margin: 50px;height: calc(100vh - 350px);display: block;margin-left: auto;margin-right: auto;" />
+			<p>Contact:<br>
+			<a href="mailto:theholdupimprov@gmail.com?body=To Whom It May Concern,%0D%0A%0D%0AMy Name is [[insert name here]]. I am [[insert title here]]. I would like to inquire about [[insert inquiry here]]. %0D%0A %0D%0ABest Regards,%0D%0A%0D%0A[[insert name here]]" target="_blank">theholdupimprov@gmail.com</a></p>
+
+
+			<p>Links:<br>
+			<a href="https://www.facebook.com/TheHoldupImprov" target="_blank">https://www.facebook.com/TheHoldupImprov</a></p>
+		</article>
+	</div>
+</div>
+	<!--<div class="articleWrapper" style="background-color: #96CEFF;">
+		<article>
+			<h1>Shows</h1>
+		</article>
+	</div>-->
+</main>
+<div class="photoBContainer"></div>
+<div class="photoB"></div>
+<!--<script type="text/javascript" src="skrollr.min.js"></script>
+<script type="text/javascript" src="skrollr.stylesheets.min.js"></script>-->
+<!--<script type="text/javascript">
+var s = skrollr.init();
+</script>-->
+  <script>
+  $(function(){
+  		$('.hotspot').on('click', function(){
+  			$('.photoB').css("background-image", "url('photos/"+$(this).data('target')+".jpg')");
+   			$('.photoBContainer').addClass('active');
+  			$('.photoB').addClass('active');
+  		});
+  		$('.photoBContainer, .photoB').on('click', function(){
+    		$('.photoBContainer').removeClass('active');
+    		$('.photoB').removeClass('active');
+  		});
+  		setTimeout(function(){
+  			$('header video').fadeOut(200);
+  		}, 2000);
+
+		$('#bios .img:nth-of-type(1)').on('mousedown', function(){
+			$(this).css('background-image', 'url("hshots/i.jpg")');
+		});
+		$('#bios .img:nth-of-type(1)').on('mouseup mouseout', function(){
+			$(this).css('background-image', 'url("ian_carr.jpg")');
+		});
+
+		$('#bios .img:nth-of-type(2)').on('mousedown', function(){
+			$(this).css('background-image', 'url("hshots/d.jpg")');
+		});
+		$('#bios .img:nth-of-type(2)').on('mouseup mouseout', function(){
+			$(this).css('background-image', 'url("devin_field.jpg")');
+		});
+
+		$('#bios .img:nth-of-type(3)').on('mousedown', function(){
+			$(this).css('background-image', 'url("hshots/a.jpg")');
+		});
+		$('#bios .img:nth-of-type(3)').on('mouseup mouseout', function(){
+			$(this).css('background-image', 'url("andrew_glick.jpg")');
+		});
+
+		$('#bios .img:nth-of-type(4)').on('mousedown', function(){
+			$(this).css('background-image', 'url("hshots/h.jpg")');
+		});
+		$('#bios .img:nth-of-type(4)').on('mouseup mouseout', function(){
+			$(this).css('background-image', 'url("hayley_huntley.jpg")');
+		});
+
+		$('#bios .img:nth-of-type(5)').on('mousedown', function(){
+			$(this).css('background-image', 'url("hshots/j.jpg")');
+		});
+		$('#bios .img:nth-of-type(5)').on('mouseup mouseout', function(){
+			$(this).css('background-image', 'url("jake_minton.jpg")');
+		});
+
+	});
+</script>
+</body>
+</html>
