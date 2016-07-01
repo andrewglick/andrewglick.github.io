@@ -529,9 +529,9 @@ table {
   background-image: url('bg.png'),linear-gradient(to bottom, rgb(72,148,180), #FF8DAD);
 }
 .section:nth-of-type(5){
-  background-image: url('bg.png'),linear-gradient(to bottom, #FF8DAD, #FF8DAD);
+  background-image: url('bg.png'),linear-gradient(to bottom, #FF8DAD, #FFAA82);
 }
 .section:nth-of-type(6){
   background: #FF8DAD;
-  background-image: url('bg.png'),
+  background-image: url('bg.png'),linear-gradient(to bottom, #FFAA82, #FFC657);
 }
